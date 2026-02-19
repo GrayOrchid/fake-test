@@ -1,6 +1,5 @@
-FROM python:3.10-slim
+FROM python:2.7-slim  # Меняем на Python 2
 
-# Устанавливаем системные зависимости
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libsodium-dev \
@@ -8,19 +7,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-# Копируем requirements.txt
 COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Обновляем pip и ставим зависимости
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
-
-# Копируем код
 COPY server.py .
 COPY config.json .
-
-# Создаем директорию для конфига
-RUN mkdir -p /etc/shadowsocks
 
 EXPOSE 10000
 

@@ -1,10 +1,10 @@
 {
     "server": "0.0.0.0",
     "server_port": 10000,
-    "password": "22",
+    "password": "222",
     "method": "aes-256-gcm",
     "timeout": 300,
     "fast_open": false,
-    "nameserver": "8.8.8.8",
-    "mode": "tcp_only"
+    "mode": "tcp_only",
+    "nameserver": "8.8.8.8"
 }

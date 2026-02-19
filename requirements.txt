@@ -1,0 +1,3 @@
+shadowsocks-fixed>=3.0.0
+libsodium
+supervisor

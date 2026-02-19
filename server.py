@@ -7,7 +7,7 @@ import time
 
 def create_config():
     """Создает конфиг для shadowsocks"""
-    password = os.environ.get('SS_PASSWORD', 'твой-пароль-здесь')
+    password = os.environ.get('SS_PASSWORD', 'desertFire11')
     port = int(os.environ.get('PORT', 10000))
     
     config = {

@@ -1,7 +1,7 @@
 {
     "server": "0.0.0.0",
     "server_port": 10000,
-    "password": "your-password-here",
+    "password": "your-secure-password",
     "method": "aes-256-gcm",
     "timeout": 300,
     "fast_open": false,

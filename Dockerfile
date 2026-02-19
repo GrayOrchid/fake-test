@@ -1,17 +1,11 @@
-FROM python:2.7-slim
+FROM alpine:3.18
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk update && apk add --no-cache \
+    shadowsocks-libev \
+    && rm -rf /var/cache/apk/*
 
-WORKDIR /app
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY server.py .
-COPY config.json .
+COPY config.json /etc/shadowsocks-libev/config.json
 
 EXPOSE 10000
 
-CMD ["python", "server.py"]
+CMD ["ss-server", "-c", "/etc/shadowsocks-libev/config.json"]
